@@ -1,5 +1,8 @@
 <?php
 
+//headers
+header('Content-Type: application/json');
+
 //Form Variables
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -22,18 +25,25 @@ curl_setopt ($ch, CURLOPT_POSTFIELDS, http_build_query(array(
 curl_setopt ($ch, CURLOPT_POST, 1); 
 $result = curl_exec ($ch); 
 
+//echo $result;
+
 $pos = strpos($result, "loginok.html");
 
+//$auth_result = array();
 if ($pos === false)
 {
-	echo "authentication failure!";
+	//$auth_result["isAuthenticated"] = false;
+	$auth_result = array("isAuthenticated" => false);
+	echo json_encode($auth_result);
 }
 else
 {
-	echo "authentication sucess! <br /><br /> token at position $pos";
+	//$auth_result["isAuthenticated"] = true;
+	$auth_result = array("isAuthenticated" => true);
+	echo json_encode($auth_result);
 }
+
 
 curl_close($ch);
 
 ?>
-<br /><br /><a href="http://127.0.0.1/login_system/login.html">Back to login</a>

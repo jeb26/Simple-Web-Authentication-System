@@ -8,10 +8,10 @@ $password = $_POST['password'];
 //echo "username entered: $username <br /> password entered: $password <br /><br />";
 
 //DB Connection Variables
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "mypass";
-$db_name = "auth";
+$db_host = "sql.njit.edu";
+$db_user = "jeb26";
+$db_pass = "dianne64";
+$db_name = "jeb26";
 $db_tbl_name = "credentials";
 
 //DB Queries
